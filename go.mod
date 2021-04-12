@@ -1,15 +1,14 @@
-module github.com/san-services/apicore
+module github.com/sanservices/apicore/v2
 
-go 1.12
+go 1.14
 
 require (
 	github.com/dchest/uniuri v0.0.0-20200228104902-7aecb25e1fe5
-	github.com/go-playground/universal-translator v0.17.0 // indirect
-	github.com/go-playground/validator v9.31.0+incompatible
-	github.com/gorilla/mux v1.8.0
-	github.com/gorilla/schema v1.2.0
+	github.com/go-playground/locales v0.13.0
+	github.com/go-playground/universal-translator v0.17.0
+	github.com/labstack/echo/v4 v4.2.2
 	github.com/leodido/go-urn v1.2.0 // indirect
-	github.com/san-services/apilogger v1.0.1
+	github.com/sanservices/apilogger/v2 v2.0.2
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
-	gopkg.in/yaml.v2 v2.3.0
+	gopkg.in/go-playground/validator.v9 v9.31.0
 )

@@ -1,7 +1,7 @@
 package validator
 
 import (
-	"github.com/san-services/apicore/v2/errs"
+	"github.com/sanservices/apicore/v2/errs"
 	"gopkg.in/go-playground/validator.v9"
 	"reflect"
 	"strings"
