@@ -1,4 +1,4 @@
-module github.com/sanservices/apicore/v2
+module github.com/sanservices/apicore
 
 go 1.14
 

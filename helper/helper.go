@@ -2,7 +2,7 @@ package helper
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/sanservices/apicore/v2/errs"
+	"github.com/sanservices/apicore/errs"
 	"net/http"
 )
 
