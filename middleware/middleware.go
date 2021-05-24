@@ -2,11 +2,11 @@ package middleware
 
 import (
 	"context"
+	"time"
+
 	"github.com/dchest/uniuri"
 	"github.com/labstack/echo/v4"
 	logger "github.com/sanservices/apilogger/v2"
-	"net/http"
-	"time"
 )
 
 // SetCustomHeaders sets some custom headers
@@ -66,9 +66,15 @@ func RequestLogger(next echo.HandlerFunc) echo.HandlerFunc {
 
 		// Call next handler
 		err := next(c)
+		errCode := c.Response().Status
+		httpErr, ok := err.(*echo.HTTPError)
+
+		if ok {
+			errCode = httpErr.Code
+		}
 
 		logger.InfoWF(r.Context(), logger.LogCatReqPath, &logger.Fields{
-			"status": http.StatusOK,
+			"status": errCode,
 			"url":    r.URL,
 			"method": r.Method,
 		})

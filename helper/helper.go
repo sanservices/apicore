@@ -1,9 +1,11 @@
 package helper
 
 import (
+	"encoding/json"
+	"net/http"
+
 	"github.com/labstack/echo/v4"
 	"github.com/sanservices/apicore/errs"
-	"net/http"
 )
 
 // httpResponse standard json response
@@ -38,4 +40,17 @@ func RespondOk(c echo.Context, data interface{}) error {
 	response := &successResponse{Data: data}
 
 	return c.JSON(http.StatusOK, response)
+}
+
+// DecodeParams decodes the query params into destination interface
+func DecodeParams(c echo.Context, dst interface{}) error {
+	binder := &echo.DefaultBinder{}
+	return binder.BindQueryParams(c, dst)
+}
+
+// DecodeBody decodes the request body into destination interface
+func DecodeBody(c echo.Context, dst interface{}) error {
+	data := c.Request().Body
+	decoder := json.NewDecoder(data)
+	return decoder.Decode(dst)
 }
