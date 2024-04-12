@@ -42,7 +42,7 @@ func RespondOk(c echo.Context, data interface{}) error {
 	return c.JSON(http.StatusOK, response)
 }
 
-// DecodeParams decodes the query params into destination interface
+// DecodeQueryParams decodes the query params into destination interface
 func DecodeQueryParams(c echo.Context, dst interface{}) error {
 	binder := &echo.DefaultBinder{}
 	return binder.BindQueryParams(c, dst)
