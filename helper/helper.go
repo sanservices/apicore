@@ -42,10 +42,16 @@ func RespondOk(c echo.Context, data interface{}) error {
 	return c.JSON(http.StatusOK, response)
 }
 
-// DecodeParams decodes the query params into destination interface
-func DecodeParams(c echo.Context, dst interface{}) error {
+// DecodeQueryParams decodes the query params into destination interface
+func DecodeQueryParams(c echo.Context, dst interface{}) error {
 	binder := &echo.DefaultBinder{}
 	return binder.BindQueryParams(c, dst)
+}
+
+// DecodePathParams decodes the path params into destination interface
+func DecodePathParams(c echo.Context, dst interface{}) error {
+	binder := &echo.DefaultBinder{}
+	return binder.BindPathParams(c, dst)
 }
 
 // DecodeBody decodes the request body into destination interface
